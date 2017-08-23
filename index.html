@@ -68,7 +68,7 @@
     <article id="post-wxx" class="wow slideInRight article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/08/17/wxx/" class="article-date">
-  <time class="post-time" datetime="2017-08-17T01:01:57.000Z" itemprop="datePublished">
+  <time class="post-time" datetime="2017-08-17T01:01:57.479Z" itemprop="datePublished">
     <span class="post-month">8月</span><br/>
     <span class="post-day">17</span>
   </time>
@@ -82,7 +82,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2017/08/17/wxx/">&#39;wxx&#39;</a>
+      <a class="article-title" href="/2017/08/17/wxx/">HEXO</a>
     </h1>
   
 
@@ -97,11 +97,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="hexo安装流程介绍"><a href="#hexo安装流程介绍" class="headerlink" title="hexo安装流程介绍"></a>hexo安装流程介绍</h2><p>为了自己下次少踩坑，也刚好巩固一下这个流程</p>
+<h3 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h3><h6 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.下载git</div><div class="line">2.下载node.js</div><div class="line">PS(安装完之后CMD之后，分别输入node -v |npm -v |git -version查看安装版本)</div></pre></td></tr></table></figure>
+<h6 id="配置GitHub"><a href="#配置GitHub" class="headerlink" title="配置GitHub"></a>配置GitHub</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">1.注册GitHub</div><div class="line">    先到GitHub官网注册一下账号信息</div><div class="line">2.SSH授权</div><div class="line">    生成SSH key :打开Git Bash，输入ssh-keygen -t rsa然后按三下回车,接着就会在C:\Users\Administrator.ssh目录下</div><div class="line">    生成到id_rsa和id_rsa.pub两个文件，id_rsa是密钥，id_rsa.pub是公钥，接下来需要将id_rsa.pub的内容添加到GitHub上，</div><div class="line">    这样本地的id_rsa密钥才能跟GitHub上的id_rsa.pub公钥进行配对，才能够授权成功。</div><div class="line">3.在GitHub上面添加SSH key</div><div class="line">    首页点击右上角的倒三角进入Setting，接着在选择左侧SSH and GPG keys，然后选择右上角的New SSH key,在把id_sra.pub的内容</div><div class="line">    复制黏贴到key,最后点击add ssh key 就大功告成了。</div><div class="line">4.验证ssh key  </div><div class="line">  SSH key 添加成功之后，输入ssh -T git@github.com进行测试</div><div class="line">5.创建GitHub仓库</div><div class="line">  GitHub首页右上角点击“+”选择new repository,一步一步添加信息就好，只有一个注意点就是：项目名称一定要使用 你的名字 + .github.io</div></pre></td></tr></table></figure>
+<h6 id="设置本地博客配置"><a href="#设置本地博客配置" class="headerlink" title="设置本地博客配置"></a>设置本地博客配置</h6><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">1.安装hexo</div><div class="line">    在一个空白文件夹内，按住<span class="built_in">shift</span>+鼠标右键，然后点击命令行窗口，（同样要记住啦，下文中会使用在当前目录打开命令行</div><div class="line">    来代指上述的操作）</div><div class="line">    在命令行输入npm install -g hexo,然后输入npm install hexo --save 这时候会出现一堆白字，然后输入hexo -v ,</div><div class="line">    查看是否安装成功</div><div class="line">2.初始化hexo</div><div class="line">  继续输入hexo init ,等待下载好了之后，输入hexo s，这个时候可以打开浏览器了，在地址栏输入http://localhost:4000/，</div><div class="line">  就可以看到我们自己的博客了，这个是本地的博客地址。</div><div class="line">3.发布博客</div><div class="line">  a.首先编写文章，在<span class="built_in">source</span>文件夹中，有一个_posts文件夹，再进入就会看到一片初始化的文章hello-world.md也就是上图显示</div><div class="line">  在页面的文章。如果我们想新建文章的话，可以通过命令窗口输入hexo new <span class="string">'filename'</span>我们的文件夹下面就会生成一个新的md</div><div class="line">  文件，然后我们打开编辑就可以了。</div><div class="line">  b.复制github上面的项目地址，然后打开我们新建的文件夹下面生成的_config.yml文件修改信息</div><div class="line">  ！[修改信息图片信息]()</div><div class="line">  注意点：deploy 是部署的意思，<span class="built_in">type</span>: git 就是使用 git 进行部署，repo: github仓库地址</div><div class="line">  repo 原本是没有的，在最后自己加上就好。冒号之后有一个空格 冒号之后有一个空格 冒号之后有一个空格</div><div class="line">  c.接下来回到命令窗口，输入 npm install hexo-deployer-git --save</div><div class="line">  安装好Git上传插件之后，输入 hexo g，然后输入 hexo d就可以将我们的博客上传到我们的GitHub了，而且以后更新文章就只需</div><div class="line">  要用这两个命令就可以了。这样别人也可以通过 https://yourname.github.io 来访问我们的博客了</div><div class="line">  （开头一定要用https，yourname是你的github的名字）。</div></pre></td></tr></table></figure>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/17/wxx/" data-id="cj6gaqa7j0000octqpakxh1ih" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/17/wxx/" data-id="cj6om17bz0000f0tq4bhcdjdk" class="article-share-link">Partager</a>
       
       
     </footer>
@@ -158,7 +162,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/08/16/hello-world/" data-id="cj6gaqa810001octqr0bc89wk" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/08/16/hello-world/" data-id="cj6om17ca0001f0tq8bs7h8kf" class="article-share-link">Partager</a>
       
       
     </footer>
